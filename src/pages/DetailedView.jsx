@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getHouses } from "../services/api";
+import { getHouseById } from "../services/api";
 import ScrollAnimation from "../Components/ScrollAnimation";
 import RelatedHouses from "../Components/RelatedHouses";
 import ContactForm from "../pages/ContactForm";
@@ -69,11 +69,28 @@ const DetailedView = () => {
 
 
 
+  // useEffect(() => {
+  //   const fetchHouse = async () => {
+  //     try {
+  //       const response = await getHouses();
+  //       const house = response.data.find((h) => h._id === id);
+  //       if (!house) throw new Error("House not found");
+  //       setHouse(house);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       console.error("Error fetching house:", err);
+  //       setError("Failed to load house details.");
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchHouse();
+  // }, [id]);
+
   useEffect(() => {
     const fetchHouse = async () => {
       try {
-        const response = await getHouses();
-        const house = response.data.find((h) => h._id === id);
+        const response = await getHouseById(id);
+        const house = response.data
         if (!house) throw new Error("House not found");
         setHouse(house);
         setLoading(false);
