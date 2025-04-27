@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getHouses, searchHouses } from "../services/api";
 import HouseCard from "./HouseCardItems";
-import ScrollAnimation from "../components/ScrollAnimation";
-import CustomDropdown from "../components/CustomDropdown";
+import ScrollAnimation from "../Components/ScrollAnimation";
+import CustomDropdown from "../Components/CustomDropdown";
 import { Search, SlidersHorizontal, X } from "lucide-react";
- 
+
 const SearchHouses = () => {
   const [filters, setFilters] = useState({
     city: "",
@@ -30,7 +30,7 @@ const SearchHouses = () => {
   const [error, setError] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-   
+
 
   useEffect(() => {
     const fetchAllHouses = async () => {
@@ -415,7 +415,7 @@ const SearchHouses = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex justify-between items-center p-6 border-b border-gray-200">
-                  <h2 style={{color:"black"}} className="text-lg font-semibold">
+                  <h2 style={{ color: "black" }} className="text-lg font-semibold">
                     Filter Properties
                   </h2>
                   <button

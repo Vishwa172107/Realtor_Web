@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getHouses } from "../services/api";
-import ScrollAnimation from "../components/ScrollAnimation";
-import RelatedHouses from "../components/RelatedHouses";
+import ScrollAnimation from "../Components/ScrollAnimation";
+import RelatedHouses from "../Components/RelatedHouses";
 import ContactForm from "../pages/ContactForm";
 import {
   MapPin,
@@ -67,7 +67,7 @@ const DetailedView = () => {
   const [error, setError] = useState(null);
   const [modalImageIndex, setModalImageIndex] = useState(null);
 
-   
+
 
   useEffect(() => {
     const fetchHouse = async () => {
@@ -302,45 +302,45 @@ const DetailedView = () => {
 
           {/* Right Section */}
           <div className="md:w-1/3 ">
-          <AnimatedSection animationClass="zoom-in  right-section">
-            <section className="p-6 space-y-4 shadow-lg bg-white rounded-2xl">
-              <div className="text-center">
-                <h2
-                  style={{ color: "black" }}
-                  className="text-lg font-semibold text-gray-700"
-                >
-                  Property for {house.status}
-                </h2>
-                <div className="text-3xl font-bold mt-2">
-                  ${house.price.toLocaleString()} {house.priceUnit}/
-                  {house.priceFrequency}
+            <AnimatedSection animationClass="zoom-in  right-section">
+              <section className="p-6 space-y-4 shadow-lg bg-white rounded-2xl">
+                <div className="text-center">
+                  <h2
+                    style={{ color: "black" }}
+                    className="text-lg font-semibold text-gray-700"
+                  >
+                    Property for {house.status}
+                  </h2>
+                  <div className="text-3xl font-bold mt-2">
+                    ${house.price.toLocaleString()} {house.priceUnit}/
+                    {house.priceFrequency}
+                  </div>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Get in touch for more about this property
+                  </p>
                 </div>
-                <p className="text-sm text-gray-500 mt-1">
-                  Get in touch for more about this property
-                </p>
-              </div>
-              <button className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none">
-                Request Info
-              </button>
-              <hr />
-              <div className="flex items-center gap-4">
-                <img
-                  src={agent.image}
-                  alt={agent.name}
-                  className="w-12 h-12 rounded-full"
-                />
-                <div>
-                  <div className="font-semibold">{agent.name}</div>
-                  <div className="text-xs text-gray-500">{agent.role}</div>
+                <button className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none">
+                  Request Info
+                </button>
+                <hr />
+                <div className="flex items-center gap-4">
+                  <img
+                    src={agent.image}
+                    alt={agent.name}
+                    className="w-12 h-12 rounded-full"
+                  />
+                  <div>
+                    <div className="font-semibold">{agent.name}</div>
+                    <div className="text-xs text-gray-500">{agent.role}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Mail size={16} /> {agent.email}
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Phone size={16} /> {agent.phone}
-              </div>
-            </section>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Mail size={16} /> {agent.email}
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Phone size={16} /> {agent.phone}
+                </div>
+              </section>
             </AnimatedSection>
           </div>
         </div>
